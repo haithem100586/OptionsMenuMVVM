@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.android.optionmenumvvm.viewmodel.CountMenuViewModel"
+            />
+        <variable
+            name="callback"
+            type="com.android.optionmenumvvm.commands.CountMenuActionCallback"
+            />
+    </data>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> callback.onCountMenuItemClicked()}"
+        android:background="?android:attr/actionBarItemBackground">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="4dp"
+            android:src="@{data.background}"
+            tools:src="@drawable/ic_menu_red_square"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{data.countText}"
+            tools:text="30"
+            android:textSize="14dp"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            tools:ignore="SpUsage"/>
+    </FrameLayout>
+</layout>
